@@ -13,7 +13,10 @@ function CreateArea(props) {
         }}/>
         <textarea name="content" placeholder="Take a note..." rows="3" value={content} onChange={(e)=>{setContent(e.target.value)}}/>
         <button type="button" onClick={()=>{
-            props.onAdd(title,content)
+            const note = {title: title, content: content};
+            props.onAdd(note);
+            setTitle("");
+            setContent("");
         }}>Add</button>
       </form>
     </div>
